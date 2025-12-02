@@ -14,32 +14,77 @@
         <a href="index.html">Home</a>
         <a href="banking.html">Banking</a>
         <a href="taxes.html">Taxes</a>
-        <a href="supply-demand.html">Supply & Demand</a>
+        <a href="supply-demand.html">Supply &amp; Demand</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <h2>Taxes — Overview</h2>
-    <p>Taxes fund public services and are collected at local, regional, and national levels. Here are common tax types and when they apply.</p>
+    <h2>Taxes — Detailed Guide</h2>
+    <p>Taxes fund public services. This page explores common tax types, when they apply, and provides examples to help you understand how they work in practice.</p>
 
     <h3>Income Tax</h3>
-    <p>Collected on individual or corporate earnings. Many countries use progressive rates (higher income, higher rate). Used to fund general government services.</p>
+    <p>Collected on earnings. Progressive systems tax higher income at higher rates. Example: if brackets are 10%, 20%, a portion of income pays each rate.</p>
 
     <h3>Payroll Tax</h3>
-    <p>Withheld from wages to fund specific programs (e.g., social security, healthcare). Employers often contribute as well.</p>
+    <p>Used to fund social programs and often withheld from paychecks (e.g., social security, medicare). Employers usually share contributions.</p>
 
     <h3>Sales Tax / VAT</h3>
-    <p>Applied to the sale of goods and services. Sales tax is common in the US; VAT (value-added tax) is common in many other countries. Usually paid by consumers at purchase.</p>
+    <p>Collected when consumers purchase goods or services. VAT is charged at each production stage but ultimately borne by consumer.</p>
 
     <h3>Property Tax</h3>
-    <p>Levied on real estate based on assessed value. Typically used to fund local services like schools and roads.</p>
+    <p>Based on assessed value of real estate—commonly funds local services like schools.</p>
 
     <h3>Corporate Tax</h3>
-    <p>Tax on company profits. Rates and rules vary widely by country and can affect investment and location decisions.</p>
+    <p>Applied to company profits; affects business decisions and investment.</p>
 
-    <h3>When are they used?</h3>
-    <p>Different taxes fund different things: payroll taxes for social programs, property taxes for local services, income/corporate taxes for broader government spending, and sales taxes for consumption-based revenue.</p>
+    <h3>Practice: Matching</h3>
+    <p>Match the tax term (left) to the correct description (right).</p>
+    <div class="matching-game" id="taxes-matching">
+      <div class="terms">
+        <button class="term" data-key="income">Income Tax</button>
+        <button class="term" data-key="vat">VAT</button>
+        <button class="term" data-key="payroll">Payroll Tax</button>
+        <button class="term" data-key="property">Property Tax</button>
+      </div>
+      <div class="defs">
+        <button class="def" data-key="property">Tax based on property value for local services</button>
+        <button class="def" data-key="payroll">Withheld from wages to fund social programs</button>
+        <button class="def" data-key="vat">Tax charged at each production stage, borne by consumer</button>
+        <button class="def" data-key="income">Tax on individual or corporate earnings</button>
+      </div>
+    </div>
+    <p class="game-msg" id="taxes-matching-msg" aria-live="polite"></p>
+
+    <h3>Practice: Quiz</h3>
+    <div class="quiz" id="taxes-quiz">
+      <div class="question" data-correct="a">
+        <p>1) Which tax is usually taken directly from your paycheck?</p>
+        <label><input type="radio" name="tq1" value="a"> Payroll tax</label><br>
+        <label><input type="radio" name="tq1" value="b"> Sales tax</label><br>
+        <label><input type="radio" name="tq1" value="c"> Property tax</label>
+      </div>
+
+      <div class="question" data-correct="b">
+        <p>2) VAT differs from simple sales tax because:</p>
+        <label><input type="radio" name="tq2" value="a"> It is only charged once</label><br>
+        <label><input type="radio" name="tq2" value="b"> It is charged at each production stage</label><br>
+        <label><input type="radio" name="tq2" value="c"> Consumers never pay it</label>
+      </div>
+
+      <div class="question" data-correct="c">
+        <p>3) Property tax revenues are most commonly used to fund:</p>
+        <label><input type="radio" name="tq3" value="a"> National defense</label><br>
+        <label><input type="radio" name="tq3" value="b"> Healthcare</label><br>
+        <label><input type="radio" name="tq3" value="c"> Local services like schools and roads</label>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn" data-action="submit-quiz">Submit Answers</button>
+        <button class="btn ghost" data-action="reset-quiz">Reset</button>
+      </div>
+      <p class="quiz-result" id="taxes-quiz-result" aria-live="polite"></p>
+    </div>
 
     <p><a href="index.html">← Back to home</a></p>
   </main>

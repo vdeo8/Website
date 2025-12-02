@@ -14,7 +14,7 @@
         <a href="index.html">Home</a>
         <a href="banking.html">Banking</a>
         <a href="taxes.html">Taxes</a>
-        <a href="supply-demand.html">Supply & Demand</a>
+        <a href="supply-demand.html">Supply &amp; Demand</a>
       </nav>
     </div>
   </header>
@@ -29,18 +29,52 @@
     <h3>Interest</h3>
     <p>Interest is how banks pay you for keeping money (APY) or charge you for borrowing (APR). Compound interest grows savings faster than simple interest.</p>
 
-    <h3>Loans & Credit</h3>
+    <h3>Loans &amp; Credit</h3>
     <p>Banks provide loans (personal, auto, mortgage) and credit products (credit cards). Loans have interest rates and repayment schedules. Your credit score affects loan terms.</p>
 
-    <h3>Safety & Insurance</h3>
+    <h3>Safety &amp; Insurance</h3>
     <p>In many countries, deposits are insured up to a limit (e.g., FDIC in the US). Use strong passwords and two-factor authentication for online banking.</p>
 
-    <h3>Tips for managing bank accounts</h3>
-    <ul>
-      <li>Track spending and set budgets.</li>
-      <li>Keep an emergency fund in a savings account.</li>
-      <li>Compare account fees and interest rates.</li>
-    </ul>
+    <h3>Practice: Matching</h3>
+    <p>Match the banking term (left) to its definition (right).</p>
+    <div class="matching-game" id="banking-matching">
+      <div class="terms">
+        <button class="term" data-key="checking">Checking</button>
+        <button class="term" data-key="savings">Savings</button>
+        <button class="term" data-key="cd">Certificate of Deposit</button>
+        <button class="term" data-key="apr">APR</button>
+      </div>
+      <div class="defs">
+        <button class="def" data-key="cd">A time-locked deposit with higher interest</button>
+        <button class="def" data-key="apr">Annual rate charged for borrowing</button>
+        <button class="def" data-key="savings">Account intended to hold money and earn interest</button>
+        <button class="def" data-key="checking">Account for daily transactions</button>
+      </div>
+    </div>
+    <p class="game-msg" id="banking-matching-msg" aria-live="polite"></p>
+
+    <h3>Practice: Quiz</h3>
+    <div class="quiz" id="banking-quiz">
+      <div class="question" data-correct="b">
+        <p>1) Which account is best for daily purchases?</p>
+        <label><input type="radio" name="q1" value="a"> Savings</label><br>
+        <label><input type="radio" name="q1" value="b"> Checking</label><br>
+        <label><input type="radio" name="q1" value="c"> CD</label>
+      </div>
+
+      <div class="question" data-correct="c">
+        <p>2) Which term describes how loan interest is typically quoted?</p>
+        <label><input type="radio" name="q2" value="a"> APY</label><br>
+        <label><input type="radio" name="q2" value="b"> Principal</label><br>
+        <label><input type="radio" name="q2" value="c"> APR</label>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn" data-action="submit-quiz">Submit Answers</button>
+        <button class="btn ghost" data-action="reset-quiz">Reset</button>
+      </div>
+      <p class="quiz-result" id="banking-quiz-result" aria-live="polite"></p>
+    </div>
 
     <p><a href="index.html">← Back to home</a></p>
   </main>
