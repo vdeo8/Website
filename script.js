@@ -1,4 +1,4 @@
-// Gamification: matching games and quizzes for topic pages
+// Gamification: matching games and quizzes for Challenges page
 (function(){
   function setupMatching(rootId){
     const root = document.getElementById(rootId);
@@ -19,7 +19,7 @@
     }
 
     terms.forEach(t => {
-      t.addEventListener('click', ()=>{
+      t.addEventListener('click', ()=>{ 
         if (t.classList.contains('matched')) return;
         terms.forEach(x=>x.classList.remove('selected'));
         selectedTerm = t;
@@ -53,8 +53,8 @@
       });
     });
 
-    // expose reset via data attribute/button if present
-    const resetBtn = root.querySelector('[data-action="reset-matching"]');
+    // reset hook
+    const resetBtn = root.closest('.challenge-panel')?.querySelector('[data-action="reset-matching"][data-target="'+rootId+'"]');
     if (resetBtn) resetBtn.addEventListener('click', reset);
   }
 
@@ -69,10 +69,9 @@
           const questions = Array.from(q.querySelectorAll('.question'));
           let correct = 0;
           let total = questions.length;
-          questions.forEach((qs, idx) => {
+          questions.forEach((qs) => {
             const correctAns = qs.dataset.correct;
-            const name = qs.querySelector('input[type="radio"]')?.name;
-            const selected = qs.querySelector('input[type="radio":checked');
+            const selected = qs.querySelector('input[type="radio"]:checked');
             if (selected && selected.value === correctAns){
               correct += 1;
               qs.classList.remove('incorrect');
@@ -99,11 +98,43 @@
     });
   }
 
-  // initialize matching games by known ids
+  // Panel show/hide handlers for Challenges page
+  function setupPanels(){
+    document.querySelectorAll('[data-show]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.dataset.show;
+        const panel = document.getElementById(id);
+        if (!panel) return;
+        panel.classList.remove('hidden');
+        panel.setAttribute('aria-hidden','false');
+        // initialize matching/quizzes inside the panel (in case they weren't present earlier)
+        // setupMatching called globally on DOMContentLoaded, but call again safely
+        const possibleMatching = panel.querySelector('.matching-game');
+        if (possibleMatching) setupMatching(possibleMatching.id);
+        const possibleQuiz = panel.querySelector('.quiz');
+        if (possibleQuiz) setupQuizzes();
+        // scroll to panel
+        panel.scrollIntoView({behavior:'smooth', block:'center'});
+      });
+    });
+
+    document.querySelectorAll('[data-close-panel]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.dataset.closePanel;
+        const panel = document.getElementById(id);
+        if (!panel) return;
+        panel.classList.add('hidden');
+        panel.setAttribute('aria-hidden','true');
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', ()=>{
+    // If matching/quizzes exist on load (they won't on topic pages), initialize them safely:
     setupMatching('banking-matching');
     setupMatching('taxes-matching');
     setupMatching('sd-matching');
     setupQuizzes();
+    setupPanels();
   });
 })();
