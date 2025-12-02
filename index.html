@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Bank — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Simple Bank — basic demo banking website with account overview, features, and contact form." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Simple Bank</h1>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#accounts">Accounts</a>
+        <a href="#contact">Contact</a>
+        <button id="loginBtn" class="btn small">Log in</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-text">
+          <h2>Banking made simple</h2>
+          <p>Secure checking and savings accounts, fast transfers, and intuitive tools to manage your money.</p>
+          <div class="cta">
+            <button id="openAccountBtn" class="btn">Open an Account</button>
+            <a href="#accounts" class="btn ghost">See Accounts</a>
+          </div>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">
+          <svg width="240" height="160" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="240" height="160" rx="12" fill="#F3F6FF"/>
+            <path d="M40 110L80 60L140 100L200 50" stroke="#3B82F6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="container features">
+      <h3>Features</h3>
+      <div class="feature-grid">
+        <div class="feature">
+          <h4>Secure</h4>
+          <p>Industry-standard encryption and two-factor authentication keep your money safe.</p>
+        </div>
+        <div class="feature">
+          <h4>Fast Transfers</h4>
+          <p>Move money between accounts instantly and send payments with confidence.</p>
+        </div>
+        <div class="feature">
+          <h4>Insightful Tools</h4>
+          <p>Spending reports and budgeting tools help you reach your financial goals.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="accounts" class="container accounts">
+      <h3>Account types</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>Checking</h4>
+          <p>Everyday account with debit card and no minimum balance.</p>
+          <p class="muted">APY: 0.01%</p>
+          <button class="btn small open-account" data-type="Checking">Open Checking</button>
+        </div>
+        <div class="card">
+          <h4>Savings</h4>
+          <p>High-yield savings to help you grow your emergency fund.</p>
+          <p class="muted">APY: 1.20%</p>
+          <button class="btn small open-account" data-type="Savings">Open Savings</button>
+        </div>
+        <div class="card">
+          <h4>Business</h4>
+          <p>Accounts and tools designed for small businesses and freelancers.</p>
+          <p class="muted">APY: 0.05%</p>
+          <button class="btn small open-account" data-type="Business">Open Business</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="container how-it-works">
+      <h3>How it works</h3>
+      <ol>
+        <li>Create an account in minutes.</li>
+        <li>Transfer funds securely.</li>
+        <li>Use tools to set budgets and track spending.</li>
+      </ol>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h3>Contact</h3>
+      <form id="contactForm" class="contact-form" novalidate>
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn">Send</button>
+          <button type="reset" class="btn ghost">Reset</button>
+        </div>
+        <p id="contactMsg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="muted">© Simple Bank — Demo site. This is not a real bank.</p>
+    </div>
+  </footer>
+
+  <!-- Account modal (basic) -->
+  <div id="accountModal" class="modal" hidden>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <h4 id="modalTitle">Open account</h4>
+      <form id="openAccountForm">
+        <label>
+          Full name
+          <input name="fullname" type="text" required />
+        </label>
+        <label>
+          Account type
+          <input name="acctype" id="acctype" readonly />
+        </label>
+        <label>
+          Initial deposit (USD)
+          <input name="deposit" type="number" min="0" step="0.01" value="0" />
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn">Create</button>
+          <button type="button" class="btn ghost" id="modalCancel">Cancel</button>
+        </div>
+        <p id="openAccountMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
