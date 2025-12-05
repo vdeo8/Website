@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Challenges — Learn Finance</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Learn Finance</h1>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="banking.html">Banking</a>
+        <a href="taxes.html">Taxes</a>
+        <a href="supply-demand.html">Supply &amp; Demand</a>
+        <a href="challenges.html" aria-current="page">Challenges</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Challenges</h2>
+    <p>Open a challenge to try quizzes and matching activities. Each challenge is hidden until you click its button.</p>
+
+    <section class="challenge-list">
+      <div class="challenge">
+        <h3>Banking</h3>
+        <p>Practice banking terms and basic concepts.</p>
+        <div class="challenge-actions">
+          <button class="btn" data-show="banking-matching-panel">Take Banking Matching</button>
+          <button class="btn ghost" data-show="banking-quiz-panel">Take Banking Quiz</button>
+        </div>
+      </div>
+
+      <div class="challenge">
+        <h3>Taxes</h3>
+        <p>Test your knowledge of tax types and usage.</p>
+        <div class="challenge-actions">
+          <button class="btn" data-show="taxes-matching-panel">Take Taxes Matching</button>
+          <button class="btn ghost" data-show="taxes-quiz-panel">Take Taxes Quiz</button>
+        </div>
+      </div>
+
+      <div class="challenge">
+        <h3>Supply &amp; Demand</h3>
+        <p>Exercises on equilibrium, shifts, and elasticity.</p>
+        <div class="challenge-actions">
+          <button class="btn" data-show="sd-matching-panel">Take S&D Matching</button>
+          <button class="btn ghost" data-show="sd-quiz-panel">Take S&D Quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Hidden challenge panels (revealed when user clicks a button) -->
+
+    <!-- Banking Matching -->
+    <section id="banking-matching-panel" class="challenge-panel hidden" aria-hidden="true">
+      <h3>Banking — Matching</h3>
+      <p>Match the banking term (left) to its definition (right).</p>
+      <div class="matching-game" id="banking-matching">
+        <div class="terms">
+          <button class="term" data-key="checking">Checking</button>
+          <button class="term" data-key="savings">Savings</button>
+          <button class="term" data-key="cd">Certificate of Deposit</button>
+          <button class="term" data-key="apr">APR</button>
+        </div>
+        <div class="defs">
+          <button class="def" data-key="cd">A time-locked deposit with higher interest</button>
+          <button class="def" data-key="apr">Annual rate charged for borrowing</button>
+          <button class="def" data-key="savings">Account intended to hold money and earn interest</button>
+          <button class="def" data-key="checking">Account for daily transactions</button>
+        </div>
+      </div>
+      <p class="game-msg" id="banking-matching-msg" aria-live="polite"></p>
+      <div class="panel-actions">
+        <button class="btn" data-action="reset-matching" data-target="banking-matching">Reset Matching</button>
+        <button class="btn ghost" data-close-panel="banking-matching-panel">Close</button>
+      </div>
+    </section>
+
+    <!-- Banking Quiz -->
+    <section id="banking-quiz-panel" class="challenge-panel hidden" aria-hidden="true">
+      <h3>Banking — Quiz</h3>
+      <div class="quiz" id="banking-quiz">
+        <div class="question" data-correct="b">
+          <p>1) Which account is best for daily purchases?</p>
+          <label><input type="radio" name="bq1" value="a"> Savings</label><br>
+          <label><input type="radio" name="bq1" value="b"> Checking</label><br>
+          <label><input type="radio" name="bq1" value="c"> CD</label>
+        </div>
+
+        <div class="question" data-correct="c">
+          <p>2) Which term describes how loan interest is typically quoted?</p>
+          <label><input type="radio" name="bq2" value="a"> APY</label><br>
+          <label><input type="radio" name="bq2" value="b"> Principal</label><br>
+          <label><input type="radio" name="bq2" value="c"> APR</label>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="btn" data-action="submit-quiz">Submit Answers</button>
+          <button class="btn ghost" data-action="reset-quiz">Reset</button>
+          <button class="btn ghost" data-close-panel="banking-quiz-panel">Close</button>
+        </div>
+        <p class="quiz-result" id="banking-quiz-result" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- Taxes Matching -->
+    <section id="taxes-matching-panel" class="challenge-panel hidden" aria-hidden="true">
+      <h3>Taxes — Matching</h3>
+      <p>Match the tax term (left) to the correct description (right).</p>
+      <div class="matching-game" id="taxes-matching">
+        <div class="terms">
+          <button class="term" data-key="income">Income Tax</button>
+          <button class="term" data-key="vat">VAT</button>
+          <button class="term" data-key="payroll">Payroll Tax</button>
+          <button class="term" data-key="property">Property Tax</button>
+        </div>
+        <div class="defs">
+          <button class="def" data-key="property">Tax based on property value for local services</button>
+          <button class="def" data-key="payroll">Withheld from wages to fund social programs</button>
+          <button class="def" data-key="vat">Tax charged at each production stage, borne by consumer</button>
+          <button class="def" data-key="income">Tax on individual or corporate earnings</button>
+        </div>
+      </div>
+      <p class="game-msg" id="taxes-matching-msg" aria-live="polite"></p>
+      <div class="panel-actions">
+        <button class="btn" data-action="reset-matching" data-target="taxes-matching">Reset Matching</button>
+        <button class="btn ghost" data-close-panel="taxes-matching-panel">Close</button>
+      </div>
+    </section>
+
+    <!-- Taxes Quiz -->
+    <section id="taxes-quiz-panel" class="challenge-panel hidden" aria-hidden="true">
+      <h3>Taxes — Quiz</h3>
+      <div class="quiz" id="taxes-quiz">
+        <div class="question" data-correct="a">
+          <p>1) Which tax is usually taken directly from your paycheck?</p>
+          <label><input type="radio" name="tq1" value="a"> Payroll tax</label><br>
+          <label><input type="radio" name="tq1" value="b"> Sales tax</label><br>
+          <label><input type="radio" name="tq1" value="c"> Property tax</label>
+        </div>
+
+        <div class="question" data-correct="b">
+          <p>2) VAT differs from simple sales tax because:</p>
+          <label><input type="radio" name="tq2" value="a"> It is only charged once</label><br>
+          <label><input type="radio" name="tq2" value="b"> It is charged at each production stage</label><br>
+          <label><input type="radio" name="tq2" value="c"> Consumers never pay it</label>
+        </div>
+
+        <div class="question" data-correct="c">
+          <p>3) Property tax revenues are most commonly used to fund:</p>
+          <label><input type="radio" name="tq3" value="a"> National defense</label><br>
+          <label><input type="radio" name="tq3" value="b"> Healthcare</label><br>
+          <label><input type="radio" name="tq3" value="c"> Local services like schools and roads</label>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="btn" data-action="submit-quiz">Submit Answers</button>
+          <button class="btn ghost" data-action="reset-quiz">Reset</button>
+          <button class="btn ghost" data-close-panel="taxes-quiz-panel">Close</button>
+        </div>
+        <p class="quiz-result" id="taxes-quiz-result" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- S&D Matching -->
+    <section id="sd-matching-panel" class="challenge-panel hidden" aria-hidden="true">
+      <h3>Supply &amp; Demand — Matching</h3>
+      <p>Match terms to definitions.</p>
+      <div class="matching-game" id="sd-matching">
+        <div class="terms">
+          <button class="term" data-key="elastic">Elasticity</button>
+          <button class="term" data-key="equilibrium">Equilibrium</button>
+          <button class="term" data-key="shiftd">Demand Shift</button>
+          <button class="term" data-key="shifts">Supply Shift</button>
+        </div>
+        <div class="defs">
+          <button class="def" data-key="equilibrium">Price where quantity supplied equals quantity demanded</button>
+          <button class="def" data-key="shiftd">A change in non-price factors that changes demand at every price</button>
+          <button class="def" data-key="shifts">A change in production costs or technology that changes supply at every price</button>
+          <button class="def" data-key="elastic">Responsiveness of quantity to a price change</button>
+        </div>
+      </div>
+      <p class="game-msg" id="sd-matching-msg" aria-live="polite"></p>
+      <div class="panel-actions">
+        <button class="btn" data-action="reset-matching" data-target="sd-matching">Reset Matching</button>
+        <button class="btn ghost" data-close-panel="sd-matching-panel">Close</button>
+      </div>
+    </section>
+
+    <!-- S&D Quiz -->
+    <section id="sd-quiz-panel" class="challenge-panel hidden" aria-hidden="true">
+      <h3>Supply &amp; Demand — Quiz</h3>
+      <div class="quiz" id="sd-quiz">
+        <div class="question" data-correct="a">
+          <p>1) If a new technology makes production cheaper, supply will:</p>
+          <label><input type="radio" name="sq1" value="a"> Increase (shift right)</label><br>
+          <label><input type="radio" name="sq1" value="b"> Decrease (shift left)</label><br>
+          <label><input type="radio" name="sq1" value="c"> Stay the same</label>
+        </div>
+
+        <div class="question" data-correct="b">
+          <p>2) High elasticity means quantity changes:</p>
+          <label><input type="radio" name="sq2" value="a"> A little when price changes</label><br>
+          <label><input type="radio" name="sq2" value="b"> A lot when price changes</label><br>
+          <label><input type="radio" name="sq2" value="c"> Not at all</label>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="btn" data-action="submit-quiz">Submit Answers</button>
+          <button class="btn ghost" data-action="reset-quiz">Reset</button>
+          <button class="btn ghost" data-close-panel="sd-quiz-panel">Close</button>
+        </div>
+        <p class="quiz-result" id="sd-quiz-result" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <p style="margin-top:18px"><a href="index.html">← Back to home</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="muted">© Learn Finance — Demo site.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
